@@ -1,38 +1,637 @@
-.App {
+* {
+  margin: 0;
+
+}
+
+body {
+  background-color: #f5f6fa;
+}
+::-webkit-scrollbar{
+  width: 0px;
+}
+.app {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #f5f6fa;
+  padding: 20px;
+}
+
+.app__dropdown {
+  background-color: white;
+}
+
+.app__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.app__header > h1 {
+  color: #fc3c3c;
+  font-size: 2rem;
+}
+
+.app__stats {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.app__left {
+  flex: 0.9;
+}
+
+.app__information > h3 {
+  color: #6a5d5d;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.app__information > h3:last-of-type {
+  margin-top: 1rem;
+}
+
+
+.infoBox {
+  flex: 1;
+}
+
+.infoBox:not(:last-child) {
+  margin-right: 10px;
+}
+
+.infoBox--selected {
+  border-top: 10px solid greenyellow;
+}
+
+.infoBox--red {
+  border-color: red;
+}
+
+.infoBox__cases--green {
+  color: lightgreen !important;
+}
+
+.infoBox__cases {
+  color: #cc1034;
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.infoBox__total {
+  color: #6c757d;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+  margin-top: 15px !important;
+}
+
+  
+.map {
+  height: 500px;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 20px;
+  margin-top: 16px;
+  box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
+}
+
+.map .leaflet-container {
+  height: 100%;
+  border-radius: 12px;
+}
+
+.info-flag img {
+  width: 100px;
+  border-radius: 5px;
+}
+
+.info-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+}
+
+.info-container {
+  width: 150px;
+}
+
+.info-flag {
+  height: 80px;
+  width: 100%;
+  background-size: cover;
+  border-radius: 8px;
+}
+
+.info-confirmed,
+.info-recovered,
+.info-deaths {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.table {
+  padding-top: 20px;
+  overflow: scroll;
+  color: #6a5d5d;
+  background-color: white;
+  height: auto;
+}
+
+.table tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table td {
+  padding: 0.5rem;
+  border: none;
+}
+
+.table tr:nth-of-type(odd) {
+  background-color: #f3f2f8;
+}
+
+.indiancases{
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  grid-gap: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  
+}
+
+.stateNews{
+width: 100%;
+}
+
+.IndiaCases{
+  width: 100%;
+}
+
+.headingDiv > h2{
+text-align: center;
+}
+
+.headingDiv{
+  padding: 20px;
+  background-color: #bdbdbd;
+}
+.indiaContent{
+  width: 100%;
+  margin-top: 30px;
+}
+
+.stateContent{
+  display: grid;
+  grid-template-columns: 20% 18% 18% 18% 18%;
+  grid-gap: 10px;
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+}
+
+.table_left{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tableContent{
+  width: 100%;
+  height: 550px;
+  overflow: scroll;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.LineGraph{
+  width: 100%;
+  margin-top: 30px;
+}
+
+.randomTitle{
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.RandomMain{
+  padding: 10px;
+}
+
+.RandomCard{
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.RandomContentDiv{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.contentRandom{
+  margin-left: 10px;
+  width: 70%;
+}
+
+.contentRandom > p{
+  padding: 1px;
+}
+
+.contentRandomImage{
+  width: 30%;
+  height: 200px;
+}
+
+.contentRandomImage > img{
+  width: 100%;
+  height: 200px;
+}
+
+.table_right{
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.table_right>h2{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.div_content{
+  width: 100%;
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.news_title{
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.news_image{
+  width: 100%;
+}
+
+.news_image > img{
+  width: 250px;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.news_description{
+  width: 100%;
+  padding: 5px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.card{
+  width: 100%;
+  margin-top: 10px;
+}
+
+.card-body{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 18% 18% 18% 18%;
+  grid-gap: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.card-body > p > span{
+  margin: 0;
+}
+
+.card-body > p{
+  justify-items: start;
+}
+
+.makeitsame{
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.casesDivConfirmed{
+  margin-left: 12px;
+  height: 200px;
+  padding-top: 20px;
+}
+
+.casesDivConfirmed:hover{
+  border-radius: 10px;
+  background-color: red;
+}
+
+.casesDivActive{
+  margin-left: 12px;
+  height: 200px;
+  padding-top: 20px;
+  border-radius: 10px;
+  background-color: lightblue;
+}
+
+.casesDivRecovered{
+  margin-left: 12px;
+  height: 200px;
+  padding-top: 20px;
+}
+
+.casesDivRecovered:hover{
+  border-radius: 10px;
+  background-color: lightgreen;
+}
+
+.casesDivDeath{
+  margin-left: 12px;
+  height: 200px;
+  padding-top: 20px;
+}
+
+.casesDivDeath:hover{
+  border-radius: 10px;
+  background-color: lightgray;
+}
+
+.maindivnews{
+  width: 100%;
+  margin-top: 30px;
+}
+
+.borderit{
+  border: 1px solid #c4c4c4;
+  border-radius: 1px;
+}
+
+.india{
+  color: orange;
+}
+
+.covid{
+  color: #f3f2f8;
+}
+
+.cases{
+  color: green;
+}
+
+.isRed{
+  color: red;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.isGreen{
+  color: rgb(45, 209, 45);
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.isGray{
+  color: gray;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.headertable{
+  margin: 0;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 990px) {
+  .app {
+    flex-direction: column;
+  }
+  .news_image{
+    width: 100%;
+  }
+  
+  .news_image > img{
+    width: 250px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .indiancases {
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-gap: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+}
+
+.casesDivActive {
+  margin-left: 0;
+  height: 150px;
+  padding-top: 42px;
+  border-radius: 10px;
+  background-color: lightblue;
+}
+
+.casesDivRecovered{
+  margin-left: 0;
+  height: 150px;
+  padding-top: 25px;
+  border-radius: 10px;
+  background-color: lightgreen;
+}
+
+.casesDivDeath{
+  margin-left: 0;
+  height: 150px;
+  padding-top: 25px;
+  border-radius: 10px;
+  background-color: lightgray;
+  margin-right: 5px;
+}
+
+.casesDivConfirmed{
+  margin-left: 5px;
+  height: 150px;
+  padding-top: 20px;
+  background-color: red;
+  border-radius: 10px;
+}
+
+.stateContent {
+  display: grid;
+  grid-template-columns: 20% 18% 18% 18% 18%;
+  grid-gap: 5px;
+  text-align: center;
+  width: 100%;
+  font-size: 15px;
+}
+
+.card-body {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 18% 18% 18% 18%;
+  grid-gap: 5px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.table {
+  margin-top: 0px;
+  overflow: scroll;
+  color: #6a5d5d;
+  background-color: white;
+  height: auto;
+}
+
+.tableContent {
+  width: 100%;
+  height: 290px;
+  overflow: scroll;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.app__stats {
+  padding-left: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding-right: 0px;
+  padding-left: 10px;
+}
+
+.infoBox{
+  margin-top: 10px;
+}
+.MuiFormControl-root{
+  width: 45%;
+}
+
+.app__header {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+  padding: 10px;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

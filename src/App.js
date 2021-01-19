@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React  from 'react';
+import './App.css'
+import Header from './Component/Header.js'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Tablecases from './Component/Tablecases'
+import "leaflet/dist/leaflet.css"
+import IndiaCases from './Component/IndiaCases'
+// import InfoBox from './Component/Infobox.js'
+function App(){
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    return ( 
+       
+<Router>
+<div className="App"> 
+<Switch>
+    <Route path="/IndiaCasesByState">
+        <IndiaCases />
+    </Route>
+    <Route path="/casesbycountry">
+        <Tablecases />
+    </Route>
+    <Route path="/">
+        <Header />
+    </Route>
+</Switch>
+
     </div>
-  );
+</Router>
+
+
+        
+    )
 }
 
-export default App;
+export default App
