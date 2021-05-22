@@ -6,6 +6,7 @@ import {
 import {Link} from 'react-router-dom'
 import InfoBox from './Infobox.js'
 import Map from './Map'
+import TableCases from './Tablecases'
 // https://disease.sh/v3/covid-19/countries
 function Header() {
 const [countries, setCountries] = useState([])
@@ -146,35 +147,14 @@ const onCountryChange = async (event)=>{
 }
 console.log("Country Info",countryInfo)
 // console.log(countryRandomInfo)
-const [TableNews, setTableNews] = useState([])
-useEffect(()=>{
-    const apiKey = "00c500ebc1584894862c1cca4a6d6722";
-    const topic = "covid 19";
-    const url = `http://newsapi.org/v2/everything?q=${topic}&apiKey=${apiKey}`
-    const getNews =  ()=>{
-    fetch(url)
-    .then(response => response.json())
-    .then(data =>{
-        const news = data.articles.map(article => ({
-            title: article.title,
-            description: article.description,
-            url: article.url,
-            image: article.urlToImage
-            // value: country.countryInfo.iso2
-        }))
-        console.log(data)
-        setTableNews(news)
-    })
-}
-getNews()
-},[])
+
     return (
         <div className="header">
             <div className="app__left">
             <div className="app__header"> 
                 <h3>COVID-19 TRACKER</h3>
-                <Link to="casesbycountry">
-                    <h5>Cases By Country</h5>
+                <Link to="covidnews">
+                    <h5>Covid World Wide Cases</h5>
                 </Link>
                 <Link to="IndiaCasesByState">
                     <h5>India Cases</h5>
@@ -286,24 +266,8 @@ getNews()
                         </div>
                     
             </div> */}
-             <div  className="table_right">
-                
-                    <h2>Covid Word-Wide News </h2>
-                    <div className="newscontent">
-                        {
-                            TableNews.map(article=>(
-                            <Card className="div_content">
-                                <p className="news_title"><strong>{article.title}</strong></p>
-                                <p className="news_image"><img src={article.image} alt="newsImage"/></p>
-                                <p className="news_description">{article.description}</p>
-                            <p className="news_url"><a href={article.url}>{article.url}</a></p>
-                            
-                            </Card> 
-                            ))
-                        }
-                    </div>
-                
-            </div>
+
+            <TableCases />
         </div>
     )
 }
