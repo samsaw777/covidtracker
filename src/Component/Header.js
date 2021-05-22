@@ -153,9 +153,9 @@ console.log("Country Info",countryInfo)
             <div className="app__left">
             <div className="app__header"> 
                 <h3>COVID-19 TRACKER</h3>
-                <Link to="covidnews">
+                {/* <Link to="covidnews">
                     <h5>Covid World Wide Cases</h5>
-                </Link>
+                </Link> */}
                 <Link to="IndiaCasesByState">
                     <h5>India Cases</h5>
                 </Link>
